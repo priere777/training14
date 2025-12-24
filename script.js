@@ -23,7 +23,6 @@ const bgIcon = document.getElementById('weather-bg-icon');
 const clockEl = document.getElementById('digital-clock');
 let currentCity = "";
 
-// 時計と背景テーマ更新
 function updateClock() {
     const now = new Date();
     clockEl.textContent = now.toLocaleTimeString('ja-JP', { hour12: false });
@@ -33,7 +32,6 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// 名前で検索
 searchBtn.addEventListener('click', () => {
     const city = cityInput.value;
     if (city) {
@@ -42,7 +40,6 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
-// GPSで検索
 locationBtn.addEventListener('click', () => {
     if (!navigator.geolocation) {
         alert("位置情報がサポートされていません");
@@ -68,12 +65,10 @@ async function fetchWeather(url) {
         const response = await fetch(url);
         if (!response.ok) throw new Error('City not found');
         const data = await response.json();
-        
         currentCity = data.name;
         document.getElementById('city-name').textContent = data.name;
         document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°`;
         document.getElementById('description').textContent = data.weather[0].description;
-        
         const weather = data.weather[0].main;
         const icons = { Clear: "☀️", Clouds: "☁️", Rain: "☔", Snow: "❄️" };
         bgIcon.textContent = icons[weather] || "🌫️";
