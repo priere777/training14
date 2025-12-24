@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="weather-bg-icon"></div>
+
+        <div id="digital-clock">00:00:00</div>
+
+        <h1>WEATHER</h1>
+        
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="City Name...">
+            <button id="search-btn">検索</button>
+        </div>
+        
+        <div id="weather-result" class="weather-card hidden">
+            <h2 id="city-name"></h2>
+            <p id="temp"></p>
+            <p id="description"></p>
+            <button id="save-btn">お気に入りに保存</button>
+        </div>
+
+        <div class="favorites">
+            <ul id="city-list"></ul>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

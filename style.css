@@ -1,0 +1,118 @@
+/* 基本設定 */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    transition: background 1s ease;
+}
+
+/* 昼と夜の背景 */
+.day-bg { background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); }
+.night-bg { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 40px;
+    width: 320px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 1;
+}
+
+/* 時計 */
+#digital-clock {
+    font-size: 1.1rem;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/* 背景イラスト */
+#weather-bg-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+h1 { font-weight: 200; letter-spacing: 5px; margin-bottom: 30px; }
+
+.search-box { display: flex; gap: 8px; margin-bottom: 30px; }
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+button#search-btn {
+    background: #4facfe;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+#temp { font-size: 4rem; font-weight: 100; margin: 10px 0; }
+
+#save-btn {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* リストと削除ボタン */
+#city-list { list-style: none; padding: 0; margin-top: 30px; }
+
+#city-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+#city-list li:hover { background: rgba(255, 255, 255, 0.15); }
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 5px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover { color: #ff4b2b; }
+
+.hidden { display: none; }
