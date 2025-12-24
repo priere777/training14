@@ -42,7 +42,7 @@ searchBtn.addEventListener('click', () => {
 
 locationBtn.addEventListener('click', () => {
     if (!navigator.geolocation) {
-        alert("位置情報がサポートされていません");
+        alert("GPSが使えません");
         return;
     }
     locationBtn.textContent = "⌛";
@@ -54,7 +54,7 @@ locationBtn.addEventListener('click', () => {
             locationBtn.textContent = "📍";
         },
         () => {
-            alert("位置情報を取得できませんでした");
+            alert("位置情報が取得できませんでした");
             locationBtn.textContent = "📍";
         }
     );
@@ -63,19 +63,19 @@ locationBtn.addEventListener('click', () => {
 async function fetchWeather(url) {
     try {
         const response = await fetch(url);
-        if (!response.ok) throw new Error('City not found');
         const data = await response.json();
+        if (!response.ok) throw new Error(data.message);
+        
         currentCity = data.name;
         document.getElementById('city-name').textContent = data.name;
         document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°`;
         document.getElementById('description').textContent = data.weather[0].description;
+        
         const weather = data.weather[0].main;
         const icons = { Clear: "☀️", Clouds: "☁️", Rain: "☔", Snow: "❄️" };
         bgIcon.textContent = icons[weather] || "🌫️";
         resultDiv.classList.remove('hidden');
-    } catch (error) {
-        alert(error.message);
-    }
+    } catch (e) { alert(e.message); }
 }
 
 saveBtn.addEventListener('click', async () => {
