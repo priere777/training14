@@ -54,7 +54,7 @@ locationBtn.addEventListener('click', () => {
             locationBtn.textContent = "📍";
         },
         () => {
-            alert("位置情報が取得できませんでした");
+            alert("位置情報を取得できませんでした");
             locationBtn.textContent = "📍";
         }
     );
@@ -75,7 +75,7 @@ async function fetchWeather(url) {
         const icons = { Clear: "☀️", Clouds: "☁️", Rain: "☔", Snow: "❄️" };
         bgIcon.textContent = icons[weather] || "🌫️";
         resultDiv.classList.remove('hidden');
-    } catch (e) { alert(e.message); }
+    } catch (e) { alert("都市が見つかりません"); }
 }
 
 saveBtn.addEventListener('click', async () => {
