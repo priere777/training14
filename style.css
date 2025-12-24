@@ -4,13 +4,13 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    /* ★ 中央寄せをやめて、上から並べる設定に変更 */
-    align-items: flex-start; 
+    /* ★ 上下の真ん中に配置 */
+    align-items: center; 
     color: white;
-    /* スマホの通知バーなどと重ならないように少し余白をあける */
-    padding-top: 30px;
+    padding: 20px;
     overflow-y: auto; 
     transition: background 1s ease;
+    box-sizing: border-box;
 }
 
 .day-bg { background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); }
@@ -23,16 +23,15 @@ body {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
-    padding: 20px 30px 40px 30px;
+    padding: 30px;
     width: 320px;
-    /* ★ 検索前はカードが短くなるように auto に設定 */
+    /* ★ 高さを自動調整（検索前は小さく、検索後は伸びる） */
     min-height: auto; 
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     text-align: center;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
 }
 
 #digital-clock {
