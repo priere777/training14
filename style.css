@@ -20,25 +20,31 @@ body {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
-    padding: 20px 30px 40px 30px; /* 上部の余白を最小限に */
+    padding: 20px 30px 40px 30px;
     width: 300px;
+    min-height: 420px; /* 検索前も高さを一定に保つ */
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     text-align: center;
     z-index: 1;
+
+    /* ★中身を上から順に並べ、上詰めに固定する設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
 }
 
 #digital-clock {
     font-size: 1.1rem;
     font-weight: 200;
     letter-spacing: 2px;
-    margin: 0 0 5px 0;
+    margin: 0 0 5px 0; /* 上の余白を完全に消す */
     opacity: 0.7;
 }
 
 h1 {
     font-weight: 200;
     letter-spacing: 5px;
-    margin: 0 0 25px 0; /* WEATHERの上下余白を最小化 */
+    margin: 0 0 20px 0; /* WEATHERの上下を詰め、下だけ少し空ける */
 }
 
 #weather-bg-icon {
@@ -56,7 +62,7 @@ h1 {
 .search-box {
     display: flex;
     gap: 6px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 input {
@@ -70,29 +76,32 @@ input {
     min-width: 0;
 }
 
-#location-btn {
-    background: rgba(255, 255, 255, 0.15);
+#location-btn, #search-btn {
     border: none;
     border-radius: 12px;
     color: white;
-    padding: 0 10px;
     cursor: pointer;
+}
+
+#location-btn {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0 10px;
     font-size: 1.1rem;
 }
 
 #search-btn {
     background: #4facfe;
-    border: none;
-    border-radius: 12px;
-    color: white;
     padding: 0 15px;
-    cursor: pointer;
+}
+
+.weather-card h2 {
+    margin: 10px 0 0 0; /* 都市名の上を詰める */
 }
 
 #temp {
     font-size: 4rem;
     font-weight: 100;
-    margin: 5px 0;
+    margin: 0; /* 気温の数字の上下余白をゼロに */
 }
 
 #save-btn {
