@@ -4,9 +4,12 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* ★ 中央寄せをやめて、上から並べる設定に変更 */
+    align-items: flex-start; 
     color: white;
-    overflow: hidden;
+    /* スマホの通知バーなどと重ならないように少し余白をあける */
+    padding-top: 30px;
+    overflow-y: auto; 
     transition: background 1s ease;
 }
 
@@ -21,30 +24,29 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
     padding: 20px 30px 40px 30px;
-    width: 300px;
-    min-height: 420px; /* 検索前も高さを一定に保つ */
+    width: 320px;
+    /* ★ 検索前はカードが短くなるように auto に設定 */
+    min-height: auto; 
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     text-align: center;
     z-index: 1;
-
-    /* ★中身を上から順に並べ、上詰めに固定する設定 */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    margin-bottom: 30px;
 }
 
 #digital-clock {
     font-size: 1.1rem;
     font-weight: 200;
     letter-spacing: 2px;
-    margin: 0 0 5px 0; /* 上の余白を完全に消す */
+    margin: 0 0 5px 0;
     opacity: 0.7;
 }
 
 h1 {
     font-weight: 200;
     letter-spacing: 5px;
-    margin: 0 0 20px 0; /* WEATHERの上下を詰め、下だけ少し空ける */
+    margin: 0 0 20px 0;
 }
 
 #weather-bg-icon {
@@ -56,7 +58,6 @@ h1 {
     opacity: 0.08;
     z-index: -1;
     pointer-events: none;
-    transition: all 0.5s ease;
 }
 
 .search-box {
@@ -95,13 +96,13 @@ input {
 }
 
 .weather-card h2 {
-    margin: 10px 0 0 0; /* 都市名の上を詰める */
+    margin: 10px 0 0 0;
 }
 
 #temp {
     font-size: 4rem;
     font-weight: 100;
-    margin: 0; /* 気温の数字の上下余白をゼロに */
+    margin: 0;
 }
 
 #save-btn {
@@ -112,7 +113,6 @@ input {
     border-radius: 12px;
     color: white;
     margin-top: 15px;
-    cursor: pointer;
 }
 
 #city-list {
@@ -135,8 +135,8 @@ input {
     background: none;
     border: none;
     color: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
     font-size: 0.75rem;
+    cursor: pointer;
 }
 
 .hidden { display: none; }
