@@ -4,13 +4,12 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    /* ★ 上下の真ん中に配置 */
-    align-items: center; 
+    /* 画面の縦方向も上詰めに設定 */
+    align-items: flex-start; 
     color: white;
-    padding: 20px;
+    padding-top: 30px; /* ステータスバーとの重なり防止 */
     overflow-y: auto; 
     transition: background 1s ease;
-    box-sizing: border-box;
 }
 
 .day-bg { background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); }
@@ -23,15 +22,15 @@ body {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
-    padding: 30px;
+    padding: 20px 30px 40px 30px;
     width: 320px;
-    /* ★ 高さを自動調整（検索前は小さく、検索後は伸びる） */
     min-height: auto; 
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     text-align: center;
     z-index: 1;
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 #digital-clock {
@@ -74,6 +73,8 @@ input {
     color: white;
     outline: none;
     min-width: 0;
+    /* ★iPhoneの自動ズームを防ぐため16px以上に設定 */
+    font-size: 16px; 
 }
 
 #location-btn, #search-btn {
@@ -92,10 +93,7 @@ input {
 #search-btn {
     background: #4facfe;
     padding: 0 15px;
-}
-
-.weather-card h2 {
-    margin: 10px 0 0 0;
+    font-size: 0.9rem;
 }
 
 #temp {
@@ -112,6 +110,7 @@ input {
     border-radius: 12px;
     color: white;
     margin-top: 15px;
+    font-size: 0.9rem;
 }
 
 #city-list {
